@@ -1,0 +1,76 @@
+.game-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.score-board {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex; /* 确保单行显示 */
+  align-items: center;
+}
+
+.score-display {
+  display: flex;
+  gap: 1px; /* 缩小数字之间的间距 */
+}
+
+.score-digit {
+  width: 10px; /* 缩小显示尺寸 */
+  height: 13px; /* 缩小显示尺寸 */
+}
+
+.score-spacer {
+  width: 5px; /* 缩小最高分和实时分之间的间距 */
+}
+
+.game-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.cloud {
+  position: absolute;
+  width: 42px;
+  height: 13px;
+  /* 移除 transition，让位置更新更直接 */
+}
+
+.start-screen {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.game-over-image {
+  width: 238px;
+  height: 22px;
+}
+
+.restart-icon {
+  width: 48px;
+  height: 48px;
+  margin-top: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+<view class="game-container" bindtap="onTouchStart">
+  <!-- 得分和最高分 -->
+  <view class="score-board">
+    <!-- 始终显示 HI + 最高分 -->
+    <view class="score-display">
+      <!-- HI -->
+      <image class="score-digit" src="/images/iamges/H.png" data-index="H"></image>
+      <image class="score-digit" src="/images/iamges/I.png" data-index="I"></image>
+      <!-- 最高分 (5 位) -->
+      <image wx:for="{{highScoreDigits}}" wx:key="index" class="score-digit" src="/images/iamges/{{item}}.png" data-index="{{item}}"></image>
+    </view>
+    <!-- 游戏开始后显示实时分数，游戏结束时显示最终分 -->
+    <view class="score-display" wx:if="{{gameStarted || gameOver}}">
+      <!-- 间距 -->
+      <view class="score-spacer"></view>
+      <!-- 实时分数或最终分 (5 位) -->
+      <image wx:for="{{gameOver ? finalScoreDigits : scoreDigits}}" wx:key="index" class="score-digit" src="/images/iamges/{{item}}.png" data-index="{{item}}"></image>
+    </view>
+  </view>
+
+  <!-- Canvas 用于绘制恐龙、地面和仙人掌 -->
+  <canvas canvas-id="gameCanvas" class="game-canvas"></canvas>
+
+  <!-- 云朵 -->
+  <image src="/images/game/cloud.png" class="cloud" style="left: {{cloud1X}}px; top: {{cloudY}}px;"></image>
+  <image src="/images/game/cloud.png" class="cloud" style="left: {{cloud2X}}px; top: {{cloudY}}px;"></image>
+
+  <!-- 初始界面 -->
+  <view class="start-screen" wx:if="{{!gameStarted && !gameOver}}">
+    <text>点击开始游戏</text>
+  </view>
+
+  <!-- Game Over 界面 -->
+  <view class="game-over" wx:if="{{gameOver}}">
+    <image src="/images/game/game-over.png" class="game-over-image" binderror="onGameOverImageError"></image>
+    <image src="/images/game/restart.png" class="restart-icon" bindtap="restartGame" binderror="onRestartImageError"></image>
+  </view>
+</view>

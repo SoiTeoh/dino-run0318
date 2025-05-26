@@ -1,0 +1,5 @@
+/* 全局样式 */
+page {
+  background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+}

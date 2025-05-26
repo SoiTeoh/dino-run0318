@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/game/game"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "恐龙快跑",
+    "navigationBarTextStyle": "black"
+  },
+  "lazyCodeLoading": "requiredComponents", 
+  "sitemapLocation": "sitemap.json"
+}
